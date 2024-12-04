@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ArticleList.css";
 
 export default function ArticleList({
@@ -6,6 +6,15 @@ export default function ArticleList({
   deleteArticle,
   editArticle,
 }) {
+  const [publish, setPublish] = useState(false);
+  useEffect(() => {
+    alert("Articolo Pubblicato");
+  }, [publish]);
+
+  function handlePublish(e) {
+    setPublish(e.target.checked);
+  }
+
   return (
     <>
       <div className="list">
@@ -48,6 +57,20 @@ export default function ArticleList({
                 >
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
+
+                <hr />
+                <div className="me-2">
+                  <input
+                    type="checkbox"
+                    id="publish"
+                    name="publish"
+                    checked={publish}
+                    onChange={(e) => handlePublish(e)}
+                  />
+                  <label for="HTML" className="me-2">
+                    Pubblica
+                  </label>
+                </div>
               </div>
             </div>
           </div>
