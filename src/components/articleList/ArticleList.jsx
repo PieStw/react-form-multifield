@@ -7,8 +7,13 @@ export default function ArticleList({
   editArticle,
 }) {
   const [publish, setPublish] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
   useEffect(() => {
-    alert("Articolo Pubblicato");
+    if (!firstLoad) {
+      alert("Articolo Pubblicato");
+    } else {
+      setFirstLoad(false);
+    }
   }, [publish]);
 
   function handlePublish(e) {
