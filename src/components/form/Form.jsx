@@ -52,12 +52,8 @@ export default function Form() {
 
   function editArticle(index) {
     const newName = prompt("Inserisci il nuovo nome");
-    const newState = prompt("Inserisci il nuovo nome");
-    const newAuthor = prompt("Inserisci il nuovo nome");
     const newArticleList = [...articleList];
     newArticleList[index].name = newName;
-    newArticleList[index].state = newState;
-    newArticleList[index].author = newAuthor;
     setArticleList(newArticleList);
   }
 
